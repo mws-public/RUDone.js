@@ -1,0 +1,28 @@
+{
+  "name": "post-long-runner-with-long-poller",
+  "homepage": "https://github.com/mws-public/post-long-runner-with-long-poller",
+  "authors": [
+    "Sudhir Ravindramohan <sudhir.ravindramohan@mcwaneservices.com>"
+  ],
+  "description": "Asycn POST submission of a long running operation and check status using long poll appoach to completion/failure with Promises",
+  "main": "post-long-runner-with-long-poller.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "POST",
+    "Long",
+    "Running",
+    "Long",
+    "Poll"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

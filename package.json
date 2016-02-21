@@ -1,0 +1,29 @@
+{
+  "name": "post-long-runner-with-long-poller",
+  "version": "1.0.0",
+  "description": "Async POST submission of a long running operation and check status using long poll appoach to completion/failure with Promises",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mws-public/post-long-runner-with-long-poller.git"
+  },
+  "keywords": [
+    "POST",
+    "\"Long",
+    "Running\"",
+    "\"Long",
+    "Poll\""
+  ],
+  "author": "sudhir.ravindramohan@mcwaneservices.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mws-public/post-long-runner-with-long-poller/issues"
+  },
+  "homepage": "https://github.com/mws-public/post-long-runner-with-long-poller#readme",
+  "devDependencies": {
+    "jasmine": "^2.4.1"
+  }
+}
