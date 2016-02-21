@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jasmine",
     "coverage": "istanbul cover -x \"bower_components/**\" -x \"spec/**\" ./node_modules/jasmine/bin/jasmine.js",
-    "lint": "jshint --reporter=checkstyle src > jshint.checkstyle.xml"
+    "lint": "jshint --reporter=checkstyle src > jshint.checkstyle.xml",
+    "postinstall": "bower install"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
   },
   "homepage": "https://github.com/mws-public/post-long-runner-with-long-poller#readme",
   "devDependencies": {
+    "bower": "^1.7.2",
     "istanbul": "^0.4.2",
     "jasmine": "^2.4.1",
     "jasmine-core": "^2.4.1",
