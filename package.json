@@ -4,7 +4,9 @@
   "description": "Async POST submission of a long running operation and check status using long poll appoach to completion/failure with Promises",
   "main": "index.js",
   "scripts": {
-    "test": "jasmine"
+    "test": "jasmine",
+    "coverage": "istanbul cover -x \"bower_components/**\" -x \"spec/**\" ./node_modules/jasmine/bin/jasmine.js",
+    "lint": "jshint --reporter=checkstyle src > jshint.checkstyle.xml"
   },
   "repository": {
     "type": "git",
@@ -12,10 +14,8 @@
   },
   "keywords": [
     "POST",
-    "\"Long",
-    "Running\"",
-    "\"Long",
-    "Poll\""
+    "Long Running",
+    "Long Poll"
   ],
   "author": "sudhir.ravindramohan@mcwaneservices.com",
   "license": "MIT",
@@ -24,6 +24,11 @@
   },
   "homepage": "https://github.com/mws-public/post-long-runner-with-long-poller#readme",
   "devDependencies": {
-    "jasmine": "^2.4.1"
+    "istanbul": "^0.4.2",
+    "jasmine": "^2.4.1",
+    "jasmine-core": "^2.4.1",
+    "jasmine-reporters": "^2.0.7",
+    "jsdom": "^7.2.0",
+    "jshint": "^2.9.1"
   }
 }

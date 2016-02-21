@@ -1,23 +1,26 @@
 'use strict';
-var Utilities,
+var Runner,
     $;
+var jsdom = require("jsdom");
 
-require("./support/jasmine-helper")(jasmine);
-
-describe('Utilities Behaviors', function () {
+describe('Runner Behaviors', function () {
     beforeAll(function (done) {
-        require("./support/jasmine-jsdom-jquery-helper").jQueryOnly(jasmine, function (__$__) {
-            $ = __$__;
+        jsdom.env('', function (err, window) {
+            if (err) {
+                console.log('done' + err);
+            }
+
+            $ = require("../bower_components/jquery/dist/jquery")(window);
             expect($).toBeDefined();
             spyOn($, 'ajax');
             spyOn($, 'noop');
-            Utilities = require("../public/js/Utilities")($, jasmine.createSpyObj("Mustache", ["render"]));
+            Runner = require("../src/runner")($);
             done();
         });
     });
 
-    it("Should have Utilities defined", function () {
-        expect(Utilities).toBeDefined();
+    it("Should have Runner defined", function () {
+        expect(Runner).toBeDefined();
     });
 
     describe("Long Running Backend Operations with Poll for Completion Status", function () {
@@ -86,7 +89,7 @@ describe('Utilities Behaviors', function () {
                     }
                 }
             });
-            Utilities.longPollOperation(options).done(function () {
+            Runner.longPollOperation(options).done(function () {
                 expect($.ajax).toHaveBeenCalledTimes(4);
                 expect(options.submission.submissionFailureAction).not.toHaveBeenCalled();
                 expect(options.poll.timeOutAction).not.toHaveBeenCalled();
@@ -120,7 +123,7 @@ describe('Utilities Behaviors', function () {
                     }
                 }
             });
-            Utilities.longPollOperation(options).done(function () {
+            Runner.longPollOperation(options).done(function () {
                 done(new Error("Long Running Operation expected to fail with time out, but was done"))
             }).fail(function (status) {
                 expect(status).toEqual("TIMED_OUT");
@@ -150,7 +153,7 @@ describe('Utilities Behaviors', function () {
                     }
                 }
             });
-            Utilities.longPollOperation(options).done(function () {
+            Runner.longPollOperation(options).done(function () {
                 done(new Error("Long Running Operation expected to fail with submission failure, but was done"))
             }).fail(function (status) {
                 expect(status).toEqual("SUBMISSION_FAILED");
@@ -175,7 +178,7 @@ describe('Utilities Behaviors', function () {
                     }
                 }
             });
-            Utilities.longPollOperation(options).fail(function (status) {
+            Runner.longPollOperation(options).fail(function (status) {
                 expect(status).toEqual("SUBMISSION_FAILED");
                 expect($.ajax).toHaveBeenCalledTimes(1); // this also means that poll was not invoked.
                 expect(options.submission.submissionFailureAction).toBeDefined();
@@ -198,7 +201,7 @@ describe('Utilities Behaviors', function () {
                     }
                 }
             });
-            Utilities.longPollOperation(options).fail(function (status) {
+            Runner.longPollOperation(options).fail(function (status) {
                 expect(status).toEqual("TIMED_OUT");
                 expect(options.submission.isSubmitted).toBeDefined();
                 done();
