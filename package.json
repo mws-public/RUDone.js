@@ -1,5 +1,5 @@
 {
-  "name": "post-long-runner-with-long-poller",
+  "name": "RUDone.js",
   "version": "1.0.0",
   "description": "Async POST submission of a long running operation and check status using long poll appoach to completion/failure with Promises",
   "main": "index.js",
