@@ -13,6 +13,9 @@ POST submission of a long running operation (on the backend) and check status us
 1. Document the options
 2. A version on nodejs using request for http calls inplace of JQuery. 
 
+## Travis Build
+![Build Status](https://travis-ci.org/mws-public/post-long-runner-with-long-poller.svg?branch=master "Build Status")
+
 ## Options Sample 
 ```
 options = {
