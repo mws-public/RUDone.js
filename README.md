@@ -1,4 +1,4 @@
-# Long-Runner-With-Status-Poller 
+# RUDone.js
 POST submission of a long running operation (on the backend) and check status using long poll approach to completion/failure
 
 1. This this library to POST data into a long running process. 
